@@ -12,6 +12,7 @@ def index():
 def about():
     return render_template('about.html', title = 'О нас', menu = menu)
 
+#обработчик 
 @app.route('/profile/<string:username>')
 def profile(username):
     return f'Пользователь: {username}'
@@ -19,7 +20,7 @@ def profile(username):
 with app.test_request_context():
     print(url_for('index'))
     print(url_for('about'))
-    print(url_for('profile', username = 'test'))
+    print(url_for('profile', username = 'username'))
 
 if __name__ == '__main__':
     app.run(debug = True)
