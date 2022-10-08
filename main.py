@@ -4,15 +4,17 @@ app = Flask(__name__)
 
 menu = ['О нас', 'Загрузка', 'Поддержка']
 
+#главная страница
 @app.route('/')
 def index():
     return render_template('index.html', title = 'Главная страница', menu = menu)
 
+#страница о нас
 @app.route('/about')
 def about():
     return render_template('about.html', title = 'О нас', menu = menu)
 
-#обработчик 
+#обработчик с выводом того, что указано после /
 @app.route('/profile/<string:username>')
 def profile(username):
     return f'Пользователь: {username}'
